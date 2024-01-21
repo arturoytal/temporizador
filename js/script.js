@@ -6,10 +6,7 @@ const sonidoFinal = document.getElementById('sonidoFinal');
 document.getElementById('playPause').addEventListener('click', toggleTemporizador);
 document.getElementById('siguienteTurno').addEventListener('click', siguienteTurno);
 document.getElementById('tiempoSeleccionado').addEventListener('change', cambiarDuracion);
-document.getElementById('audioSeleccionado').addEventListener('change', function() {
-    sonidoFinal.src = this.value;
-    sonidoFinal.load();
-});
+document.getElementById('audioSeleccionado').addEventListener('change', cambiarAudio);
 
 function iniciarTemporizador(duracionEnMinutos) {
     duracion = duracionEnMinutos * 60 * 1000;
@@ -41,13 +38,13 @@ function actualizarBarraProgreso(porcentaje) {
     barra.style.width = porcentaje + '%';
 
     if (porcentaje > 50) {
-        barra.style.backgroundColor = '#4CAF50'; // Verde
+        barra.style.backgroundColor = '#4CAF50';
         document.getElementById('cuentaAtras').style.color = '#4CAF50';
     } else if (porcentaje > 25) {
-        barra.style.backgroundColor = 'orange'; // Naranja
+        barra.style.backgroundColor = 'orange';
         document.getElementById('cuentaAtras').style.color = 'orange';
     } else {
-        barra.style.backgroundColor = 'red'; // Rojo
+        barra.style.backgroundColor = 'red';
         document.getElementById('cuentaAtras').style.color = 'red';
     }
 }
@@ -75,6 +72,12 @@ function cambiarDuracion() {
     iniciarTemporizador(parseInt(document.getElementById('tiempoSeleccionado').value));
 }
 
+function cambiarAudio() {
+    let audioSeleccionado = document.getElementById('audioSeleccionado').value;
+    sonidoFinal.src = audioSeleccionado;
+    sonidoFinal.load();
+}
+
 function obtenerVersion() {
     fetch('https://api.github.com/repos/arturoytal/temporizador/contents/changelog.md')
         .then(response => response.json())
@@ -82,6 +85,9 @@ function obtenerVersion() {
             const textoCodificado = atob(data.content);
             const version = textoCodificado.match(/## \[(.*?)\]/)[1];
             document.getElementById('version').textContent = version;
+        })
+        .catch(error => {
+            console.error("Error al obtener la versión:", error);
         });
 }
 
