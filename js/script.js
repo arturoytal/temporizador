@@ -54,8 +54,10 @@ function toggleTemporizador() {
         intervalo = null;
     } else if (tiempoRestante > 0) {
         intervalo = setInterval(actualizarTemporizador, 100);
+        sonidoFinal.play()
     } else {
         iniciarTemporizador(parseInt(document.getElementById('tiempoSeleccionado').value));
+        sonidoFinal.play()
     }
 }
 
