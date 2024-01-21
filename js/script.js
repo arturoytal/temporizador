@@ -37,13 +37,13 @@ function actualizarBarraProgreso(porcentaje) {
     barra.style.width = porcentaje + '%';
 
     if (porcentaje > 50) {
-        barra.style.backgroundColor = '#4CAF50'; // Verde
+        barra.style.backgroundColor = '#4CAF50';
         document.getElementById('cuentaAtras').style.color = '#4CAF50';
     } else if (porcentaje > 25) {
-        barra.style.backgroundColor = 'orange'; // Naranja
+        barra.style.backgroundColor = 'orange';
         document.getElementById('cuentaAtras').style.color = 'orange';
     } else {
-        barra.style.backgroundColor = 'red'; // Rojo
+        barra.style.backgroundColor = 'red';
         document.getElementById('cuentaAtras').style.color = 'red';
     }
 }
@@ -54,10 +54,8 @@ function toggleTemporizador() {
         intervalo = null;
     } else if (tiempoRestante > 0) {
         intervalo = setInterval(actualizarTemporizador, 100);
-        sonidoFinal.play()
     } else {
         iniciarTemporizador(parseInt(document.getElementById('tiempoSeleccionado').value));
-        sonidoFinal.play()
     }
 }
 
@@ -72,22 +70,3 @@ function cambiarDuracion() {
     clearInterval(intervalo);
     iniciarTemporizador(parseInt(document.getElementById('tiempoSeleccionado').value));
 }
-
-function obtenerVersion() {
-    fetch('https://raw.githubusercontent.com/arturoytal/temporizador/main/changelog.md')
-        .then(response => response.text())
-        .then(texto => {
-            const versionRegex = /## \[([\d.]+)\]/;
-            const coincidencia = versionRegex.exec(texto);
-            if (coincidencia && coincidencia[1]) {
-                document.getElementById('version').textContent = coincidencia[1];
-            } else {
-                console.error("No se pudo encontrar la versión en changelog.md");
-            }
-        })
-        .catch(error => {
-            console.error("Error al obtener la versión:", error);
-        });
-}
-
-obtenerVersion();
