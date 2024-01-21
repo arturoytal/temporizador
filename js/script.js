@@ -1,6 +1,7 @@
 let tiempoRestante;
 let intervalo;
 let duracion;
+const sonidoFinal = document.getElementById('sonidoFinal');
 
 document.getElementById('playPause').addEventListener('click', toggleTemporizador);
 document.getElementById('siguienteTurno').addEventListener('click', siguienteTurno);
@@ -9,14 +10,14 @@ document.getElementById('tiempoSeleccionado').addEventListener('change', cambiar
 function iniciarTemporizador(duracionEnMinutos) {
     duracion = duracionEnMinutos * 60 * 1000;
     tiempoRestante = duracion;
-    intervalo = setInterval(actualizarTemporizador, 100); // Intervalo ajustado para milisegundos
+    intervalo = setInterval(actualizarTemporizador, 100);
 }
 
 function actualizarTemporizador() {
     let porcentaje = (tiempoRestante / duracion) * 100;
     let minutos = parseInt((tiempoRestante / (1000 * 60)) % 60, 10);
     let segundos = parseInt((tiempoRestante / 1000) % 60, 10);
-    let milisegundos = parseInt((tiempoRestante / 100) % 10, 10); // Solo un decimal para milisegundos
+    let milisegundos = parseInt((tiempoRestante / 100) % 10, 10);
 
     minutos = minutos < 10 ? "0" + minutos : minutos;
     segundos = segundos < 10 ? "0" + segundos : segundos;
@@ -27,24 +28,14 @@ function actualizarTemporizador() {
     
     if ((tiempoRestante -= 100) < 0) {
         clearInterval(intervalo);
-        document.getElementById('sonidoFinal').play();
+        sonidoFinal.play();
     }
 }
 
 function actualizarBarraProgreso(porcentaje) {
     let barra = document.getElementById('barraProgreso');
     barra.style.width = porcentaje + '%';
-
-    let color;
-    if (porcentaje > 50) {
-        color = '#4CAF50'; // Verde
-    } else if (porcentaje > 25) {
-        color = 'orange'; // Naranja
-    } else {
-        color = 'red'; // Rojo
-    }
-    document.getElementById('cuentaAtras').style.color = color;
-    barra.style.backgroundColor = color;
+    // Código para cambiar el color de la barra
 }
 
 function toggleTemporizador() {
@@ -60,8 +51,8 @@ function toggleTemporizador() {
 
 function siguienteTurno() {
     clearInterval(intervalo);
-    sonidoFinal.pause(); // Detener el sonido
-    sonidoFinal.currentTime = 0; // Reiniciar el sonido al principio
+    sonidoFinal.pause();
+    sonidoFinal.currentTime = 0;
     iniciarTemporizador(parseInt(document.getElementById('tiempoSeleccionado').value));
 }
 
@@ -70,7 +61,6 @@ function cambiarDuracion() {
     iniciarTemporizador(parseInt(document.getElementById('tiempoSeleccionado').value));
 }
 
-// Función para obtener la versión del changelog
 function obtenerVersion() {
     fetch('https://api.github.com/repos/arturoytal/temporizador/contents/changelog.md')
         .then(response => response.json())

@@ -7,12 +7,12 @@ body {
 }
 
 #temporizador {
-    font-size: 8em; /* Tamaño de fuente aumentado */
+    font-size: 8em;
     margin-bottom: 20px;
 }
 
 #barraProgreso {
-    height: 40px; /* Altura aumentada */
+    height: 120px;
     width: 100%;
     background-color: #ddd;
 }
@@ -25,16 +25,13 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    display: block;
+    width: 100%;
 }
 
 #siguienteTurno {
-    font-size: 2em; /* Tamaño de fuente aumentado */
-    width: 100%; /* Ancho completo */
-    margin-top: 20px; /* Espaciado aumentado */
-}
-
-#selectorTiempo {
-    margin-top: 20px;
+    font-size: 2em;
+    height: 120px;
 }
 
 footer {

@@ -3,6 +3,22 @@
 Todas las modificaciones significativas en este proyecto serán documentadas en este archivo.
 
 
+
+## [0.0.5] - 2024-01-24
+
+### Añadido
+- Funcionalidad para detener el sonido de alarma al iniciar el siguiente turno.
+- Opción de seleccionar más intervalos de tiempo (1 a 10 minutos).
+
+### Cambiado
+- El archivo de sonido de alarma ahora se ubica en la carpeta `audio`.
+- Aumentada significativamente la altura de la barra de progreso.
+- Botones de 'Play/Pause' y 'Siguiente Turno' ahora se muestran uno sobre el otro.
+- El botón 'Siguiente Turno' se ha hecho más grande para facilitar su uso en dispositivos móviles.
+- Título de la página actualizado a "Temporizador de Juegos de Mesa y tal".
+- Selector de tiempo y versión movidos al footer para una mejor disposición en la página.
+
+
 ## [0.0.4] - 2024-01-23
 
 ### Añadido
