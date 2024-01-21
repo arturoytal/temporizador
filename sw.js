@@ -1,5 +1,5 @@
 const CACHE_NAME = 'version-1';
-const urlsToCache = [ 'index.html', 'css/styles.css', 'js/script.js', 'audio/alarma.mp3' ];
+const urlsToCache = ['index.html', 'css/styles.css', 'js/script.js', 'audio/alarma.mp3'];
 
 self.addEventListener('install', (event) => {
     event.waitUntil(
@@ -14,8 +14,8 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(
         caches.match(event.request)
             .then(() => {
-                return fetch(event.request)
-                    .catch(() => caches.match('/offline.html'));
+                return fetch(event.request) 
+                    .catch(() => caches.match('offline.html'));
             })
     );
 });
