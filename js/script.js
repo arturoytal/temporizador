@@ -74,9 +74,14 @@ function cambiarDuracion() {
 function obtenerVersion() {
     fetch('https://raw.githubusercontent.com/arturoytal/temporizador/main/changelog.md')
         .then(response => response.text())
-        .then(text => {
-            const version = text.match(/## \[(.*?)\]/)[1];
-            document.getElementById('version').textContent = version;
+        .then(texto => {
+            const versionRegex = /## \[([\d.]+)\]/;
+            const coincidencia = versionRegex.exec(texto);
+            if (coincidencia && coincidencia[1]) {
+                document.getElementById('version').textContent = coincidencia[1];
+            } else {
+                console.error("No se pudo encontrar la versión en changelog.md");
+            }
         })
         .catch(error => {
             console.error("Error al obtener la versión:", error);
