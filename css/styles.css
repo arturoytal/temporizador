@@ -12,7 +12,7 @@ body {
 }
 
 #barraProgreso {
-    height: 240px;
+    height: 120px;
     width: 100%;
     background-color: #ddd;
 }
@@ -30,8 +30,10 @@ body {
 }
 
 #siguienteTurno {
-    font-size: 2em;
-    height: 120px;
+    font-size: 4em;
+    height: 240px;
+    background-color: orange;
+
 }
 
 footer {

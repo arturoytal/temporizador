@@ -3,6 +3,12 @@
 Todas las modificaciones significativas en este proyecto serán documentadas en este archivo.
 
 
+## [0.0.8] - 2024-01-27
+
+### Cambiado
+- Revertido a un solo sonido de alarma como en la configuración original.
+- Implementada una nueva función para obtener la versión más reciente desde el archivo `changelog.md` en GitHub y mostrarla en el footer.
+- Ajuste del tamaño de la barra de progreso para mejorar la visualización en dispositivos móviles.
 
 
 ## [0.0.7] - 2024-01-21
