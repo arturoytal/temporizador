@@ -1,0 +1,22 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+
+#temporizador {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+#barraProgreso {
+    height: 20px;
+    width: 100%;
+    background-color: #ddd;
+}
+
+#barraProgreso div {
+    height: 100%;
+    width: 0%;
+    background-color: #4CAF50;
+}
