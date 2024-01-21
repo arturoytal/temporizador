@@ -4,6 +4,19 @@ Todas las modificaciones significativas en este proyecto serán documentadas en 
 
 
 
+
+
+## [0.0.6] - 2024-01-25
+
+### Añadido
+- Selector de sonido de alarma con múltiples opciones.
+- Espacio aumentado entre el botón de siguiente turno y los selectores de tiempo y audio.
+
+### Cambiado
+- Ajuste en la carga del sonido de alarma para que corresponda a la selección del usuario.
+- Mejoras en la disposición de los elementos para adaptarse mejor a la visualización en dispositivos móviles.
+
+
 ## [0.0.5] - 2024-01-24
 
 ### Añadido

@@ -8,6 +8,7 @@ document.getElementById('siguienteTurno').addEventListener('click', siguienteTur
 document.getElementById('tiempoSeleccionado').addEventListener('change', cambiarDuracion);
 document.getElementById('audioSeleccionado').addEventListener('change', function() {
     sonidoFinal.src = this.value;
+    sonidoFinal.load();
 });
 
 function iniciarTemporizador(duracionEnMinutos) {
