@@ -60,6 +60,8 @@ function toggleTemporizador() {
 
 function siguienteTurno() {
     clearInterval(intervalo);
+    sonidoFinal.pause(); // Detener el sonido
+    sonidoFinal.currentTime = 0; // Reiniciar el sonido al principio
     iniciarTemporizador(parseInt(document.getElementById('tiempoSeleccionado').value));
 }
 
