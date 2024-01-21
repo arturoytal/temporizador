@@ -6,7 +6,11 @@ const sonidoFinal = document.getElementById('sonidoFinal');
 document.getElementById('playPause').addEventListener('click', toggleTemporizador);
 document.getElementById('siguienteTurno').addEventListener('click', siguienteTurno);
 document.getElementById('tiempoSeleccionado').addEventListener('change', cambiarDuracion);
-document.getElementById('audioSeleccionado').addEventListener('change', cambiarAudio);
+document.getElementById('audioSeleccionado').addEventListener('change', function() {
+    sonidoFinal.src = this.value;
+    sonidoFinal.load();
+    console.log("Nuevo audio cargado:", sonidoFinal.src); // Depuración
+});
 
 function iniciarTemporizador(duracionEnMinutos) {
     duracion = duracionEnMinutos * 60 * 1000;
@@ -72,19 +76,21 @@ function cambiarDuracion() {
     iniciarTemporizador(parseInt(document.getElementById('tiempoSeleccionado').value));
 }
 
-function cambiarAudio() {
-    let audioSeleccionado = document.getElementById('audioSeleccionado').value;
-    sonidoFinal.src = audioSeleccionado;
-    sonidoFinal.load();
-}
-
 function obtenerVersion() {
     fetch('https://api.github.com/repos/arturoytal/temporizador/contents/changelog.md')
         .then(response => response.json())
         .then(data => {
-            const textoCodificado = atob(data.content);
-            const version = textoCodificado.match(/## \[(.*?)\]/)[1];
-            document.getElementById('version').textContent = version;
+            if (data.content) {
+                const textoCodificado = atob(data.content);
+                const version = textoCodificado.match(/## \[(.*?)\]/);
+                if (version && version[1]) {
+                    document.getElementById('version').textContent = version[1];
+                } else {
+                    console.error("Formato de versión no encontrado en changelog.md");
+                }
+            } else {
+                console.error("Contenido de changelog.md no encontrado");
+            }
         })
         .catch(error => {
             console.error("Error al obtener la versión:", error);
