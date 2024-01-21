@@ -3,6 +3,15 @@
 Todas las modificaciones significativas en este proyecto serán documentadas en este archivo.
 
 
+## [0.0.9] - Fecha del cambio
+- Convertido el sitio web en una Aplicación Web Progresiva (PWA).
+- Añadido el archivo manifest.json para la configuración de la PWA.
+- Creado un service worker básico para permitir funcionalidades offline.
+- Actualizado el index.html para incluir la referencia al archivo manifest y registrar el service worker.
+- Mejoras para asegurar la funcionalidad de la aplicación en modo offline.
+- Preparación para la instalación de la aplicación en dispositivos móviles y de escritorio.
+
+
 ## [0.0.8] - 2024-01-27
 
 ### Cambiado
