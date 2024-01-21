@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Temporizador de Juegos de Mesa</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Temporizador de Juegos de Mesa y tal</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
 </head>
 <body>
     <div id="temporizador">
@@ -13,17 +14,28 @@
     </div>
     <button id="playPause">Play/Pause</button>
     <button id="siguienteTurno">Siguiente Turno</button>
-    <div>
+    <div id="selectorTiempo">
         <label for="tiempoSeleccionado">Selecciona el tiempo (minutos):</label>
         <select id="tiempoSeleccionado">
             <option value="1">1 minuto</option>
             <option value="2">2 minutos</option>
-            <!-- Agregar más opciones según sea necesario -->
+            <option value="3">3 minutos</option>
+            <option value="4">4 minutos</option>
+            <option value="5">5 minutos</option>
+            <option value="6">6 minutos</option>
+            <option value="7">7 minutos</option>
+            <option value="8">8 minutos</option>
+            <option value="9">9 minutos</option>
+            <option value="10">10 minutos</option>
         </select>
     </div>
     <audio id="sonidoFinal">
         <source src="alarma.mp3" type="audio/mpeg">
     </audio>
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
+    <footer>
+        <p>Version: <span id="version"></span></p>
+        <a href="https://github.com/arturoytal/temporizador/blob/main/changelog.md">Historial de Cambios</a>
+    </footer>
 </body>
 </html>

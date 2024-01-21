@@ -7,7 +7,7 @@ body {
 }
 
 #temporizador {
-    font-size: 5em; /* Tamaño grande para el temporizador */
+    font-size: 5em;
     margin-bottom: 20px;
 }
 
@@ -24,7 +24,7 @@ body {
 }
 
 #playPause, #siguienteTurno {
-    font-size: 1.5em; /* Botones más grandes y destacados */
+    font-size: 1.5em;
     padding: 10px 20px;
     margin-top: 10px;
     background-color: orange;
@@ -34,5 +34,14 @@ body {
 }
 
 #siguienteTurno {
-    background-color: red; /* Color más destacado para 'Siguiente Turno' */
+    background-color: red;
+}
+
+#selectorTiempo {
+    margin-top: 20px;
+}
+
+footer {
+    margin-top: 20px;
+    font-size: 0.8em;
 }

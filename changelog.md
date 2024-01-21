@@ -2,6 +2,21 @@
 
 Todas las modificaciones significativas en este proyecto serán documentadas en este archivo.
 
+## [0.0.3] - 2024-01-22
+
+### Añadido
+- Favicon en la carpeta `img`.
+- Footer con versión actual y enlace al historial de cambios.
+- Mejoras en la interfaz de selección de tiempo.
+
+### Cambiado
+- `style.css`, `script.js` movidos a sus respectivas carpetas `css` y `js`.
+- Botón de Siguiente Turno aumentado de tamaño.
+- Temporizador y barra de progreso ahora cambian de color según el tiempo restante.
+- Funcionalidad de Play/Pause mejorada para reanudar desde donde se pausó.
+
+### Corregido
+- Ajustes en la disposición y tamaño de elementos para mejorar la usabilidad en dispositivos móviles.
 
 ## [0.0.2] - 2024-01-21
 
