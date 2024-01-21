@@ -6,6 +6,7 @@
     <title>Temporizador de Juegos de Mesa y tal</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="manifest" href="/manifest.json">
 </head>
 <body>
     <div id="temporizador">
@@ -37,5 +38,14 @@
         <p>Version: <span id="version">0.0.6</span></p>
         <a href="https://github.com/arturoytal/temporizador/blob/main/changelog.md">Historial de Cambios</a>
     </footer>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(reg => console.log('Service Worker: Registrado'))
+                    .catch(err => console.log(`Service Worker: Error: ${err}`));
+            });
+        }
+    </script>
 </body>
 </html>
