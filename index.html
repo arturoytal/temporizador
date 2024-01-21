@@ -8,14 +8,18 @@
 </head>
 <body>
     <div id="temporizador">
-        <div id="cuentaAtras">00:00</div>
+        <div id="cuentaAtras">00:00:000</div>
         <div id="barraProgreso"></div>
     </div>
     <button id="playPause">Play/Pause</button>
     <button id="siguienteTurno">Siguiente Turno</button>
     <div>
         <label for="tiempoSeleccionado">Selecciona el tiempo (minutos):</label>
-        <input type="number" id="tiempoSeleccionado" min="1" value="5">
+        <select id="tiempoSeleccionado">
+            <option value="1">1 minuto</option>
+            <option value="2">2 minutos</option>
+            <!-- Agregar más opciones según sea necesario -->
+        </select>
     </div>
     <audio id="sonidoFinal">
         <source src="alarma.mp3" type="audio/mpeg">
