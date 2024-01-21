@@ -6,6 +6,9 @@ const sonidoFinal = document.getElementById('sonidoFinal');
 document.getElementById('playPause').addEventListener('click', toggleTemporizador);
 document.getElementById('siguienteTurno').addEventListener('click', siguienteTurno);
 document.getElementById('tiempoSeleccionado').addEventListener('change', cambiarDuracion);
+document.getElementById('audioSeleccionado').addEventListener('change', function() {
+    sonidoFinal.src = this.value;
+});
 
 function iniciarTemporizador(duracionEnMinutos) {
     duracion = duracionEnMinutos * 60 * 1000;
@@ -35,7 +38,17 @@ function actualizarTemporizador() {
 function actualizarBarraProgreso(porcentaje) {
     let barra = document.getElementById('barraProgreso');
     barra.style.width = porcentaje + '%';
-    // Código para cambiar el color de la barra
+
+    if (porcentaje > 50) {
+        barra.style.backgroundColor = '#4CAF50'; // Verde
+        document.getElementById('cuentaAtras').style.color = '#4CAF50';
+    } else if (porcentaje > 25) {
+        barra.style.backgroundColor = 'orange'; // Naranja
+        document.getElementById('cuentaAtras').style.color = 'orange';
+    } else {
+        barra.style.backgroundColor = 'red'; // Rojo
+        document.getElementById('cuentaAtras').style.color = 'red';
+    }
 }
 
 function toggleTemporizador() {
