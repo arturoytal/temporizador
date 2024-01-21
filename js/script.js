@@ -9,23 +9,23 @@ document.getElementById('tiempoSeleccionado').addEventListener('change', cambiar
 function iniciarTemporizador(duracionEnMinutos) {
     duracion = duracionEnMinutos * 60 * 1000;
     tiempoRestante = duracion;
-    intervalo = setInterval(actualizarTemporizador, 10);
+    intervalo = setInterval(actualizarTemporizador, 100); // Intervalo ajustado para milisegundos
 }
 
 function actualizarTemporizador() {
     let porcentaje = (tiempoRestante / duracion) * 100;
     let minutos = parseInt((tiempoRestante / (1000 * 60)) % 60, 10);
     let segundos = parseInt((tiempoRestante / 1000) % 60, 10);
-    let milisegundos = parseInt(tiempoRestante % 1000, 10);
+    let milisegundos = parseInt((tiempoRestante / 100) % 10, 10); // Solo un decimal para milisegundos
 
     minutos = minutos < 10 ? "0" + minutos : minutos;
     segundos = segundos < 10 ? "0" + segundos : segundos;
-    milisegundos = milisegundos < 100 ? "0" + (milisegundos < 10 ? "0" + milisegundos : milisegundos) : milisegundos;
 
     document.getElementById('cuentaAtras').textContent = minutos + ":" + segundos + ":" + milisegundos;
-    actualizarBarraProgreso(porcentaje);
 
-    if ((tiempoRestante -= 10) < 0) {
+    actualizarBarraProgreso(porcentaje);
+    
+    if ((tiempoRestante -= 100) < 0) {
         clearInterval(intervalo);
         document.getElementById('sonidoFinal').play();
     }
@@ -35,13 +35,16 @@ function actualizarBarraProgreso(porcentaje) {
     let barra = document.getElementById('barraProgreso');
     barra.style.width = porcentaje + '%';
 
+    let color;
     if (porcentaje > 50) {
-        barra.style.backgroundColor = '#4CAF50'; // Verde
+        color = '#4CAF50'; // Verde
     } else if (porcentaje > 25) {
-        barra.style.backgroundColor = 'orange'; // Naranja
+        color = 'orange'; // Naranja
     } else {
-        barra.style.backgroundColor = 'red'; // Rojo
+        color = 'red'; // Rojo
     }
+    document.getElementById('cuentaAtras').style.color = color;
+    barra.style.backgroundColor = color;
 }
 
 function toggleTemporizador() {
@@ -49,7 +52,7 @@ function toggleTemporizador() {
         clearInterval(intervalo);
         intervalo = null;
     } else if (tiempoRestante > 0) {
-        intervalo = setInterval(actualizarTemporizador, 10);
+        intervalo = setInterval(actualizarTemporizador, 100);
     } else {
         iniciarTemporizador(parseInt(document.getElementById('tiempoSeleccionado').value));
     }
@@ -64,3 +67,16 @@ function cambiarDuracion() {
     clearInterval(intervalo);
     iniciarTemporizador(parseInt(document.getElementById('tiempoSeleccionado').value));
 }
+
+// Función para obtener la versión del changelog
+function obtenerVersion() {
+    fetch('https://api.github.com/repos/arturoytal/temporizador/contents/changelog.md')
+        .then(response => response.json())
+        .then(data => {
+            const textoCodificado = atob(data.content);
+            const version = textoCodificado.match(/## \[(.*?)\]/)[1];
+            document.getElementById('version').textContent = version;
+        });
+}
+
+obtenerVersion();

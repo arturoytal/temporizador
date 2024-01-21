@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Temporizador de Juegos de Mesa y tal</title>
+    <title>Temporizador de Juegos de Mesa</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
 </head>
 <body>
     <div id="temporizador">
-        <div id="cuentaAtras">00:00:000</div>
+        <div id="cuentaAtras">00:00:0</div>
         <div id="barraProgreso"></div>
     </div>
-    <button id="playPause">Play/Pause</button>
-    <button id="siguienteTurno">Siguiente Turno</button>
+    <div id="controles">
+        <button id="playPause">Play/Pause</button>
+        <button id="siguienteTurno">Siguiente Turno</button>
+    </div>
     <div id="selectorTiempo">
         <label for="tiempoSeleccionado">Selecciona el tiempo (minutos):</label>
         <select id="tiempoSeleccionado">

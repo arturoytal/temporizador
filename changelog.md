@@ -2,6 +2,22 @@
 
 Todas las modificaciones significativas en este proyecto serán documentadas en este archivo.
 
+
+## [0.0.4] - 2024-01-23
+
+### Añadido
+- Opciones extendidas de tiempo en el selector (1 a 10 minutos).
+
+### Cambiado
+- Barra de progreso y números de cuenta atrás aumentados de tamaño.
+- Números de cuenta atrás muestran solo un decimal en los milisegundos.
+- Botón de "Siguiente Turno" aumentado de tamaño y movido a una línea separada.
+- Automatización para mostrar la versión actual del proyecto en el footer, extrayendo información del archivo `changelog.md` en GitHub.
+
+### Corregido
+- Pequeños ajustes de diseño para mejorar la usabilidad en dispositivos móviles.
+
+
 ## [0.0.3] - 2024-01-22
 
 ### Añadido
@@ -18,6 +34,7 @@ Todas las modificaciones significativas en este proyecto serán documentadas en 
 ### Corregido
 - Ajustes en la disposición y tamaño de elementos para mejorar la usabilidad en dispositivos móviles.
 
+
 ## [0.0.2] - 2024-01-21
 
 ### Añadido
@@ -33,6 +50,7 @@ Todas las modificaciones significativas en este proyecto serán documentadas en 
 
 ### Corregido
 - Problemas de visualización en dispositivos móviles debido a tamaño de fuente y botones.
+
 
 ## [0.0.1] - 2024-01-20
 
