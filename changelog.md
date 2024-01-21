@@ -5,8 +5,13 @@ Todas las modificaciones significativas en este proyecto serán documentadas en 
 
 
 
+## [0.0.7] - 2024-01-21
 
-## [0.0.6] - 2024-01-25
+### Cambiado
+- Aumentada la altura de la barra de progreso a 240px para una mejor visualización en dispositivos móviles.
+
+
+## [0.0.6] - 2024-01-21
 
 ### Añadido
 - Selector de sonido de alarma con múltiples opciones.
@@ -17,7 +22,7 @@ Todas las modificaciones significativas en este proyecto serán documentadas en 
 - Mejoras en la disposición de los elementos para adaptarse mejor a la visualización en dispositivos móviles.
 
 
-## [0.0.5] - 2024-01-24
+## [0.0.5] - 2024-01-21
 
 ### Añadido
 - Funcionalidad para detener el sonido de alarma al iniciar el siguiente turno.
@@ -32,7 +37,7 @@ Todas las modificaciones significativas en este proyecto serán documentadas en 
 - Selector de tiempo y versión movidos al footer para una mejor disposición en la página.
 
 
-## [0.0.4] - 2024-01-23
+## [0.0.4] - 2024-01-21
 
 ### Añadido
 - Opciones extendidas de tiempo en el selector (1 a 10 minutos).
@@ -47,7 +52,7 @@ Todas las modificaciones significativas en este proyecto serán documentadas en 
 - Pequeños ajustes de diseño para mejorar la usabilidad en dispositivos móviles.
 
 
-## [0.0.3] - 2024-01-22
+## [0.0.3] - 2024-01-21
 
 ### Añadido
 - Favicon en la carpeta `img`.
