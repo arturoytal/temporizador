@@ -3,6 +3,17 @@ let intervalo;
 let duracion;
 const sonidoFinal = document.getElementById('sonidoFinal');
 
+// Intentar desbloquear la reproducción de audio en dispositivos con restricciones
+document.body.addEventListener('touchstart', function inicializarAudio() {
+    sonidoFinal.play().then(() => {
+        sonidoFinal.pause();
+        sonidoFinal.currentTime = 0;
+    }).catch(error => console.error('Error al inicializar el audio:', error));
+
+    // Eliminar este manejador después de la primera ejecución
+    document.body.removeEventListener('touchstart', inicializarAudio);
+});
+
 document.getElementById('playPause').addEventListener('click', toggleTemporizador);
 document.getElementById('siguienteTurno').addEventListener('click', siguienteTurno);
 document.getElementById('tiempoSeleccionado').addEventListener('change', cambiarDuracion);
